@@ -1,0 +1,196 @@
+<ion-header class="main searchbar" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" text="" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  
+    <div class="header-content">
+      <div class="header-logo">
+        <img src="./../../../../assets/images/logo/youbeleza-icon.svg" class="icon" alt="icon" title="YOUBELEZA">
+        <img src="./../../../../assets/images/logo/youbeleza-logo.svg" class="logo" alt="logo" title="YOUBELEZA">
+      </div>
+  
+      <div class="header-searchbar">
+        <ion-searchbar mode="md"
+          class="header" animated
+          clear-icon inputmode="text"
+          placeholder="Estou procurando por..."
+          type="text">
+        </ion-searchbar>
+      </div>
+  
+      <div class="header-buttons">
+        <ion-buttons slot="end">
+          <!-- BOTÕES HEADER -->
+          <ion-button *ngFor="let headerButton of headerButtons; let i = index"
+            (click)="selected = i" mode="md" fill="clear" class="just-icon white">
+              <ion-icon name="{{ selected == i ? headerButton.iconFilled : headerButton.iconOutline }}"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="showSearchbar = !showSearchbar">
+        <ion-icon *ngIf="!showSearchbar" name="search-outline"></ion-icon>
+        <ion-icon *ngIf="showSearchbar" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar class="searchbar" [hidden]="!showSearchbar">
+    <div class="header-searchbar">
+      <ion-searchbar mode="md"
+        class="header shaded" animated
+        clear-icon inputmode="text"
+        placeholder="Estou procurando por..."
+        type="text">
+      </ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="product">
+    <ion-grid class="p0">
+      <!-- BREADCRUMB / CAMINHO -->
+      <ion-row>
+        <ion-col size="12">
+          <yb-breadcrumb [links]="links"></yb-breadcrumb>
+        </ion-col>
+      </ion-row>
+
+      <!-- 'PRODUTO' -->
+      <ion-row>
+        <ion-col size-xs="5" size-sm="6" size-lg="3">
+          <div class="product-gallery">
+            <ion-slides pager="false" [options]="viewProductSlider" mode="md" #viewproduct (ionSlideWillChange)="getIndex()">
+              <ion-slide *ngFor="let product of products">
+                <img src="./../../../../assets/images/products/{{ product.image }}-grande.svg" [alt]="product.image">
+              </ion-slide>
+            </ion-slides>
+  
+            <div class="product-slider-buttons">
+              <ion-button fill="clear" class="just-icon white left" (click)="prevSlide()" *ngIf="activeIndex !== 1">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </ion-button>
+  
+              <ion-button fill="clear" class="just-icon white right" (click)="nextSlide()" *ngIf="activeIndex !== totalSlides">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </ion-button>
+            </div>
+
+            <p class="index"><span><b>{{ activeIndex }}</b></span> de <span>{{ totalSlides }}</span></p>
+          </div>
+        </ion-col>
+
+        <ion-col size-xs="7" size="12" size-sm="6" size-lg="5">
+          <div class="product-info">
+            <h1 class="product-title">Batom Vermelho - MAC - SENSUAL</h1>
+
+            <div class="product-buttons">
+              <ion-button expand="block" mode="md" fill="solid" class="product ir">
+                <ion-icon name="cart-outline"></ion-icon> Ir para a loja
+              </ion-button>
+
+              <ion-button expand="block" mode="md" fill="clear" class="product clear salvar">
+                <ion-icon name="heart-outline"></ion-icon> Salvar produto
+              </ion-button>
+
+              <!-- SOMENTE MOBILE -->
+              <ion-button expand="block" mode="md" fill="clear" class="just-icon transparent heart-mobile">
+                <ion-icon name="heart-outline"></ion-icon>
+              </ion-button>
+            </div>
+
+            <p class="product-text">a partir de</p>
+            <p class="product-price"> {{ 50 | currency: 'BRL'}}</p>
+            <a class="product-link" href="#comparacao" alt="10 lojas" title="10 lojas">em 10 lojas</a>
+          </div>
+        </ion-col>
+
+        <!-- ESCONDEREMOS ESSAS TAGS NO MOBILE -->
+        <ion-col size="12" size-lg="4" class="hide-tags-mobile">
+          <div class="product-tags">
+            <p>TAGS</p>
+
+            <div class="tags-wrapper">
+              <ion-chip class="tags" *ngFor="let tag of tags">{{ tag.tag }}</ion-chip>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- 'COMPARAÇÃO' -->
+      <ion-row>
+        <ion-col size="12">
+          <div class="comparison">
+            <h2>Compare o preço em 10 lojas confiáveis:</h2>
+
+            <ng-container>
+              <yb-comparison-card
+                *ngFor="let card of cards"
+                [image]="card.image"
+                [store]="card.store"
+                [price]="card.price"
+                [website]="card.website"
+                [conditions]="card.conditions">
+              </yb-comparison-card>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- 'CONHEÇA A COMUNIDADE' -->
+      <ion-row>
+        <ion-col size="12" class="p0">
+          <div class="community">
+            <yb-section-banner
+              title="Conheça a nossa comunidade"
+              message="Tire as suas dúvidas e ajude outras pessoas a escolherem o melhor produto."
+              buttonText="Ir para a comunidade"
+              image="beauty"
+              route="/teste">
+            </yb-section-banner>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- 'OUTROS PRODUTOS' -->
+      <ion-row>
+        <ion-col size="12" class="p0">
+          <div class="other-products">
+            <yb-section-title
+              title="Outros produtos"
+              subtitle="Ver todos"
+              route="/teste">
+            </yb-section-title>
+    
+            <div class="product-slider">
+              <ion-slides [options]="productSlider" mode="md">
+                <ion-slide *ngFor="let other of others">
+                  <yb-product-card
+                    [productDiscount]="other.productDiscount"
+                    [productImage]="other.productImage"
+                    [productLabel]="other.productLabel"
+                    [productPrice]="other.productPrice"
+                    [productStore]="other.productStore">
+                  </yb-product-card>
+                </ion-slide>
+              </ion-slides>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+  <!-- RODAPÉ -->
+  <yb-footer class="dark-gray">
+    <div class="footer-content">
+      <h3>YouBeleza</h3>
+      <p>Telefone : (XX) XXXXX-XXXX</p>
+      <p>E-mail : contato@youbeleza.com</p>
+    </div>
+  </yb-footer>
+</ion-content>

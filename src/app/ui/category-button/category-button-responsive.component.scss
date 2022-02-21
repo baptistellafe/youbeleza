@@ -1,0 +1,26 @@
+@media screen and (max-width: 1024px) {
+  .category-button-wrapper {
+    .category-button-icon {
+      width: calc(50px + 3vw);
+      height: calc(50px + 3vw);
+
+      yb-icon-svg {
+        &::ng-deep {
+          svg {
+            width: calc(32px + 2vw);
+          }
+        }
+      }
+    }
+  
+    .category-button-label {
+      max-width: 140px;
+  
+      a {
+        color: var(--dark-gray);
+        font-size: calc(11px + 1vw);
+        margin-top: calc(5px + 1vw);
+      }
+    }
+  }
+} 

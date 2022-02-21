@@ -1,0 +1,11 @@
+<div class="breadcrumb-wrapper">
+  <ul>
+    <li
+      *ngFor="let link of links; let first = first; let last = last"
+      [class.first]="first"
+      [class.last]="last">
+
+      <a [routerLink]="link.link" routerDirection="backward" [title]="text">{{ link.text }}</a>
+    </li>
+  </ul>
+</div>

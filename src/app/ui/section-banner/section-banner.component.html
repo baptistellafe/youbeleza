@@ -1,0 +1,19 @@
+<div class="section-banner-wrapper">
+  <div class="banner-content">
+    <div class="content-header">
+      <h3>{{ title }}</h3>
+    </div>
+
+    <div class="content-message">
+      <p>{{ message }}</p>
+    </div>
+
+    <div class="content-footer">
+      <a [routerLink]="route" routerDirection="forward" [title]="buttonText">{{ buttonText }} <ion-icon name="arrow-forward-outline"></ion-icon></a>
+    </div>
+  </div>
+
+  <div class="banner-image">
+    <img src="./../../../assets/images/illustrations/{{ image }}.svg" [alt]="title" [title]="title">
+  </div>
+</div>

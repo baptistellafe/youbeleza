@@ -1,0 +1,23 @@
+@media screen and (max-width: 1024px) {
+  .title-n-subtitle {
+    line-height: calc(21px + 1vw);
+    
+    h2 { font-size: calc(18px + 1vw); }
+  
+    a {
+      font-size: calc(14px + 1vw);
+  
+      ion-icon {
+        margin-left: calc(4px + 1vw);
+      }
+
+      &:hover {
+        color: var(--purple);
+  
+        ion-icon {
+          margin-left: calc(8px + 1vw);
+        }
+      }
+    }
+  }
+}

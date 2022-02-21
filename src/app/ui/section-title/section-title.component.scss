@@ -1,0 +1,37 @@
+.title-n-subtitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 43.67px;
+  text-align: center;
+  
+  h2 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0;
+    color: var(--dark-gray);
+  }
+
+  a {
+    font-size: 24px;
+    color: var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .2s;
+
+    ion-icon {
+      margin-left: 12px;
+      transition: margin-left .2s;
+    }
+
+    &:hover {
+      opacity: .8;
+
+      ion-icon {
+        margin-left: 20px;
+      }
+    }
+  }
+}

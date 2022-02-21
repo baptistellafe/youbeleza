@@ -1,0 +1,28 @@
+@media screen and (max-width: 1024px) {
+  :host {
+    &.dark-gray {
+      ion-footer {
+        ion-toolbar {
+          --padding-top: 32px;
+          --padding-bottom: 32px;
+  
+          &::ng-deep {
+            .footer-content {
+              height: auto;
+  
+              h3, p { font-size: calc(12px + 1vw); }
+
+              h3 { margin-top: 0; }
+  
+              p {
+                font-weight: 400;
+                margin-top: calc(8px + 1vw);
+                margin-bottom: calc(8px + 1vw);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

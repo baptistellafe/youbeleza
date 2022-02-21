@@ -1,0 +1,47 @@
+@media screen and (max-width: 1020px) {
+  ion-content {
+    section.mobile-searchbar { display: block; }
+
+    section {
+      &:not(.mobile-searchbar):not(.home) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+    }
+    
+    section.home {
+      .home-slide {
+        width: 100%;
+        height: calc(218px + 10vw);
+  
+        .slide-wrapper {
+          border-radius: calc(8px + 1vw);
+          background: var(--disabled-gray);
+  
+          .overlay, .home-slide-buttons {
+            display: none;
+            pointer-events: none;
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  
+    section.category {
+      .category-slider {
+        > ion-slides {
+          ion-slide {
+            align-items: flex-start;
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+  yb-footer {
+    display: none;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}

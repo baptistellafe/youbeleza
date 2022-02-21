@@ -1,0 +1,16 @@
+ion-tabs {
+  &.main {
+    ion-tab-bar {
+      box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.42);
+      
+      ion-tab-button {
+        --color: var(--dark-gray);
+        --color-selected: var(--dark-gray);
+
+        &.tab-selected {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+:host {
+  &.dark-gray {
+    ion-footer {
+      ion-toolbar {
+        --background: var(--dark-gray);
+        --min-height: 0;
+        --padding-start: 16px;
+        --padding-right: 16px;
+
+        &::ng-deep {
+          .footer-content {
+            width: 100%;
+            height: 100%;
+            max-width: 1162px;
+            margin: 0 auto;
+            height: 547px;
+
+            h3, p {
+              color: var(--white);
+              font-size: 24px;
+            }
+
+            h3 {
+              margin: 60px 0 0 0;
+              font-weight: 700;
+              text-transform: uppercase;
+            }
+
+            p {
+              font-weight: 400;
+              margin: 16px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

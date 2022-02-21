@@ -1,0 +1,61 @@
+@media screen and (max-width: 992px) {
+  .comparison-card-wrapper {
+    padding: 3vw;
+    position: relative;
+
+    .comparison-left {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-right: 3vw;
+
+      p {
+        display: block;
+        margin-top: 5px;
+        width: 100%;
+        text-align: left;
+      }
+
+      img {
+        &.store-logo {
+         display: none;
+        }
+      }
+    }
+
+    .comparison-right {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      > img {
+        display: block;
+        align-self: flex-end;
+        max-width: 100px;
+        margin: 0 0 12px 0;
+      }
+
+      ion-text {
+        margin: 0;
+      }
+
+      ion-button {
+        align-self: flex-start;
+        margin-top: 30px;
+      }
+    }
+  
+    img {
+      &.store-logo {
+        margin-right: 4vw;
+      }
+    }
+  
+    p {
+      color: var(--dark-gray);
+      font-size: calc(10px + 3vw);
+      margin: 0 4vw 0 0;
+      flex: 1;
+    }
+  }
+}

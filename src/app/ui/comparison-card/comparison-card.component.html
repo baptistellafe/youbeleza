@@ -1,0 +1,20 @@
+<div class="comparison-card-wrapper">
+  <div class="comparison-left">
+    <img src="./../../../assets/images/products/{{ image }}.svg" [alt]="image" [title]="image" class="product">
+
+    <img src="./../../../assets/images/stores/{{ store }}.svg" [alt]="store" [title]="store" class="store-logo">
+
+    <p class="store-name">Nome da loja</p>
+  </div>
+  
+  <div class="comparison-right">
+    <ion-text>
+      <p class="price">{{ price | currency: 'BRL' }}</p>
+      <p class="price-obs">{{ conditions }}</p>
+    </ion-text>
+
+    <ion-button class="comparison" expand="block" [href]="website" target="_blank">
+      Ir para loja <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+</div>

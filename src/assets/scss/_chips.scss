@@ -1,0 +1,16 @@
+ion-chip {
+  &.discount {
+    --background: var(--pink);
+    --color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 7px;
+  }
+
+  &.tags {
+    --background: var(--light-gray-2);
+    --color: var(--gray);
+    font-size: 18px;
+    margin: 0;
+  }
+}

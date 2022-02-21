@@ -1,0 +1,9 @@
+<div class="category-button-wrapper">
+  <ion-button class="category-button-icon" [routerLink]="route" routerDirection="forward">
+    <yb-icon-svg [icon]="icon"></yb-icon-svg>
+  </ion-button>
+
+  <div class="category-button-label">
+    <a [routerLink]="route" routerDirection="forward" [title]="label">{{ label }}</a>
+  </div>
+</div>

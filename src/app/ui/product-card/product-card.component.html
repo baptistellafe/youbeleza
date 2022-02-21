@@ -1,0 +1,20 @@
+<div class="product-card-wrapper" routerLink="/produto" routerDirection="forward">
+  <div class="product-card-header" [ngClass]="{'with-discount': productDiscount, 'without-discount': productDiscount == 0 || !productDiscount }">
+    <ion-chip *ngIf="productDiscount || productDiscount > 0" class="discount">-{{ productDiscount }}%</ion-chip>
+
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="product-card-image">
+    <img src="./../../../assets/images/products/{{ productImage }}.svg" [alt]="productLabel" [title]="productLabel">
+  </div>
+
+  <div class="product-card-content">
+    <p class="title">{{ productLabel }}</p>
+    <p class="observation">a partir de</p>
+    <p class="price">{{ productPrice | currency: 'BRL'}}</p>
+    <p class="observation">em {{ productStore }} lojas</p>
+  </div>
+</div>

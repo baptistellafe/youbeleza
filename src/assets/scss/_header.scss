@@ -1,0 +1,129 @@
+ion-header {
+  &.main {
+    ion-toolbar {
+      --background: var(--dark-gray);
+      --min-height: 80px;
+  
+      > ion-buttons {
+        ion-menu-button { display: none;}
+
+        ion-back-button { --color: var(--white); font-size: 32px; }
+
+        ion-button {
+          --color: var(--white) !important;
+          font-size: 22px;
+          display: none;
+          --ripple-color: var(--transparent) !important;
+          --background-color: var(--transparent) !important;
+          --background-hover: var(--transparent) !important;
+        }
+      }
+  
+      .header-content {
+        width: 100%;
+        height: 100%;
+        padding: 16px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      
+        .header-logo {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          max-width: 318.27px;
+      
+          .icon { margin-right: 16px; margin-left: 12px;}
+          .logo { height: 33px; margin-right: 10px;}
+        }
+  
+        .header-searchbar {
+          flex: 1;
+          max-width: 480px;
+        }
+      
+        .header-buttons {
+          width: 100%;
+          max-width: 318.27px;
+          display: flex;
+          justify-content: flex-end;
+          
+          ion-buttons {
+            ion-button {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+      
+    &.searchbar {
+      ion-toolbar {
+        --box-shadow: none;
+
+        &:nth-child(2) {
+          --background: var(--white);
+          --min-height: 0;
+          
+          .header-searchbar {
+            padding: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  ion-header {
+    &.main {
+      ion-toolbar {
+        --min-height: 56px;
+
+        > ion-buttons {
+          ion-menu-button { display: block;}
+
+          ion-button {
+            display: block;
+          }
+        }
+
+        .header-content {
+          height: 56px;
+          justify-content: center;
+        
+          .header-logo {
+            .icon { margin-right: 10px; margin-left: -47.99px; height: 28px; }
+            .logo { height: 16px; margin-right: 0;}
+          }
+          
+          .header-searchbar,
+          .header-buttons {
+            display: none;
+            visibility: hidden;
+            pointer-events: none;
+          }
+
+          ion-title {
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      &.searchbar {
+        ion-toolbar {
+          .header-content {
+            .header-logo {
+              .icon {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

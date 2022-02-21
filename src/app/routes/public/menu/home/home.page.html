@@ -1,0 +1,225 @@
+<ion-header class="main ion-no-border" mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button mode="md" menu="main"></ion-menu-button>
+    </ion-buttons>
+  
+    <div class="header-content">
+      <div class="header-logo">
+        <img src="./../../../../assets/images/logo/youbeleza-icon.svg" class="icon" alt="icon" title="YOUBELEZA">
+        <img src="./../../../../assets/images/logo/youbeleza-logo.svg" class="logo" alt="logo" title="YOUBELEZA">
+      </div>
+  
+      <div class="header-searchbar">
+        <ion-searchbar mode="md"
+          class="header" animated
+          clear-icon inputmode="text"
+          placeholder="Estou procurando por..."
+          type="text">
+        </ion-searchbar>
+      </div>
+  
+      <div class="header-buttons">
+        <ion-buttons slot="end">
+          <!-- BOTÕES HEADER -->
+          <ion-button *ngFor="let headerButton of headerButtons; let i = index"
+          [routerLink]="headerButton.route" routerDirection="root"
+            (click)="selected = i" mode="md" fill="clear" class="just-icon white">
+              <ion-icon name="{{ selected == i ? headerButton.iconFilled : headerButton.iconOutline }}"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="p0">
+    <ion-row>
+      <ion-col size="12" class="p0">
+        <!-- MOBILE SEARCHBAR -->
+        <section class="mobile-searchbar">
+          <ion-searchbar mode="md"
+            class="header shaded" animated
+            clear-icon inputmode="text"
+            placeholder="Estou procurando por..."
+            type="text">
+          </ion-searchbar>
+        </section>
+      </ion-col>
+    </ion-row>
+
+    <!-- SLIDER -->
+    <ion-row>
+      <ion-col size="12" class="p0">
+        <section class="home">
+          <div class="home-slide">
+            <div class="slide-wrapper">
+              <ion-slides pager="true" [options]="heroSlider" mode="md" #heroSlide>
+                <ion-slide>
+                  <ion-content>
+                    <p>1</p>
+                  </ion-content>
+                </ion-slide>
+        
+                <ion-slide>
+                  <ion-content>
+                    <p>2</p>
+                  </ion-content>
+                </ion-slide>
+        
+                <ion-slide>
+                  <ion-content>
+                    <p>3</p>
+                  </ion-content>
+                </ion-slide>
+              </ion-slides>
+        
+              <div class="overlay"></div>
+        
+              <div class="home-slide-buttons">
+                <ion-button fill="clear" class="just-icon white left" (click)="prevSlide()">
+                  <ion-icon name="chevron-back-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button fill="clear" class="just-icon white right" (click)="nextSlide()">
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+    <!-- SESSÃO 'PRINCIPAIS CATEGORIAS' -->
+    <ion-row>
+      <ion-col size="12" class="p0">
+        <section class="category">
+          <yb-section-title
+            title="Principais categorias"
+            subtitle="Ver todas"
+            route="/teste">
+          </yb-section-title>
+  
+          <div class="category-slider">
+            <ion-slides [options]="categorySlider" mode="md">
+              <ion-slide *ngFor="let category of categories">
+                <yb-category-button
+                  [icon]="category.icon"
+                  [label]="category.label"
+                  [route]="category.route">
+                </yb-category-button>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+    <!-- SESSÃO 'PROMOÇÕES EM DESTAQUE' -->
+    <ion-row>
+      <ion-col size="12" class="p0">
+        <section class="highlight">
+          <yb-section-title
+            title="Promoções em destaque"
+            subtitle="Ver todas"
+            route="/teste">
+          </yb-section-title>
+  
+          <div class="product-slider">
+            <ion-slides [options]="productSlider" mode="md">
+              <ion-slide *ngFor="let highlight of highlights">
+                <yb-product-card
+                  [productDiscount]="highlight.productDiscount"
+                  [productImage]="highlight.productImage"
+                  [productLabel]="highlight.productLabel"
+                  [productPrice]="highlight.productPrice"
+                  [productStore]="highlight.productStore">
+                </yb-product-card>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+    <!-- SESSÃO 'VERÃO 2021' -->
+    <ion-row>
+      <ion-col size="12" class="p0"   >
+        <section class="season">
+          <yb-section-title
+            title="Verão 2021"
+            subtitle="Ver todos os produtos"
+            route="/teste">
+          </yb-section-title>
+  
+          <div class="product-slider">
+            <ion-slides [options]="productSlider" mode="md">
+              <ion-slide *ngFor="let season of seasons">
+                <yb-product-card
+                  [productDiscount]="season.productDiscount"
+                  [productImage]="season.productImage"
+                  [productLabel]="season.productLabel"
+                  [productPrice]="season.productPrice"
+                  [productStore]="season.productStore">
+                </yb-product-card>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+    <!-- SESSÃO 'CONHEÇA A COMUNIDADE' -->
+    <ion-row>
+      <ion-col size="12" class="p0">
+        <section class="community">
+          <yb-section-banner
+            title="Conheça a nossa comunidade"
+            message="Tire as suas dúvidas e ajude outras pessoas a escolherem o melhor produto."
+            buttonText="Ir para a comunidade"
+            image="beauty"
+            route="/teste">
+          </yb-section-banner>
+        </section>
+      </ion-col>
+    </ion-row>
+  
+    <!-- SESSÃO 'SEUS DESEJOS' -->
+    <ion-row>
+      <ion-col size="12" class="p0">
+        <section class="wish">
+          <yb-section-title
+            title="Seus desejos"
+            subtitle="Ver todos"
+            route="/teste">
+          </yb-section-title>
+  
+          <div class="product-slider">
+            <ion-slides [options]="productSlider" mode="md">
+              <ion-slide *ngFor="let wish of wishes">
+                <yb-product-card
+                  [productDiscount]="wish.productDiscount"
+                  [productImage]="wish.productImage"
+                  [productLabel]="wish.productLabel"
+                  [productPrice]="wish.productPrice"
+                  [productStore]="wish.productStore">
+                </yb-product-card>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- RODAPÉ -->
+  <yb-footer class="dark-gray">
+    <div class="footer-content">
+      <h3>YouBeleza</h3>
+      <p>Telefone : (XX) XXXXX-XXXX</p>
+      <p>E-mail : contato@youbeleza.com</p>
+    </div>
+  </yb-footer>
+</ion-content>

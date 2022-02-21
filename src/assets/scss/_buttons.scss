@@ -1,0 +1,54 @@
+ion-button {
+  &.just-icon {
+    --background-activated: var(--transparent);
+    --background-activated-opacity: 0;
+    --background-focused: var(--transparent);
+    --background-focused-opacity: 0;
+    --background-hover: var(--transparent);
+    --background-hover-opacity: 0;
+    --ripple-color: var(--transparent);
+
+    &.white {
+      --color: var(--white);
+    }
+  }
+
+  &.product {
+    --background: var(--pink);
+    --color: var(--white);
+    text-transform: none;
+    font-size: 18px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    height: auto;
+    --border-radius: 6px;
+
+    ion-icon {
+      margin-right: 12px;
+      font-size: 22px;
+    }
+
+    &.clear {
+      --background: var(--transparent);
+      --color: var(--gray);
+    }
+  }
+
+  &.comparison {
+    --background: var(--pink);
+    --color: var(--white);
+    text-transform: none;
+    font-size: 18px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    height: auto;
+    --border-radius: 6px;
+    --padding-end: 12px;
+
+    ion-icon {
+      margin-left: 12px;
+      margin-right: 0;
+      font-size: 22px;
+    }
+  }
+}

@@ -1,0 +1,134 @@
+@media screen and (max-width: 1024px) {
+  ion-content {
+    section {
+      &.product {
+        yb-breadcrumb {
+          &::ng-deep {
+            .breadcrumb-wrapper {
+              margin-top: 2vw;
+              margin-bottom: 2vw;
+              
+              ul {
+                li {
+                  a {
+                    font-size: calc(8px + 1.2vw);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // GALERIA DO PRODUTO
+        .product-gallery {
+          p {
+            &.index {
+              margin-top: 3vw;
+              margin-bottom: 4vw;
+              font-size: calc(8px + 2vw);
+            }
+          }
+        }
+
+        // OUTROS PRODUTOS
+        .other-products {
+          padding: 0 0 60px 0;
+        }
+        
+        // COMPARAÇÃO
+        .comparison {
+          margin: 30px 0 30px 0;
+          
+          > h2 {
+            padding: 4vw;
+            font-size: calc(11px + 2vw);
+          }
+        }
+
+        // INFORMAÇÕES DO PRODUTO
+        .product-info {
+          position: relative;
+          margin-top: 16px;
+
+          h1.product-title {
+            margin: 0 0 3vw 0;
+            font-size: calc(12px + 2vw);
+          }
+
+          div.product-buttons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3vw;
+            flex-wrap: wrap;
+
+            ion-button {
+              &.salvar { display: none; }
+
+              &.heart-mobile {
+                display: block;
+                position: absolute;
+                top: -50px;
+                right: -26px;
+                font-size: 22px;
+
+                ion-icon {
+                  --ionicon-stroke-width: 50px;
+                }
+              }
+            }
+          }
+
+          p {
+            margin: 0;
+
+            &.product-text { font-size: calc(8px + 2vw); }
+            &.product-price { font-size: calc(18px + 3vw); }
+          }
+
+          a {
+            &.product-link {
+              color: var(--dark-gray);
+              font-weight: 700;
+              font-size: calc(8px + 2vw);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  ion-content {
+    section {
+      &.product {
+        .product-tags {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  ion-content {
+    section {
+      &.product {
+        .product-tags {
+          display: none;
+        }
+
+        .product-info {
+          div.product-buttons {
+            ion-button {
+              &.product {
+                width: 100%;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

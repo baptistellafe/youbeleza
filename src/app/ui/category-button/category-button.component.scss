@@ -1,0 +1,50 @@
+.category-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .category-button-icon {
+    --background: linear-gradient(243.47deg, #BC4E9C 16.35%, #F80759 83.05%);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    --border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 15px rgba(135, 135, 135, 0.5);
+    border-radius: 100%;
+  }
+
+  .category-button-label {
+    max-width: 140px;
+
+    a {
+      color: var(--dark-gray);
+      font-size: 24px;
+      margin: 18px 0 0 0;
+      text-decoration: none;
+      display: block;
+    }
+  }
+
+  &:hover {
+    .category-button-icon {
+      --background: var(--white);
+      
+      yb-icon-svg {
+        &::ng-deep {
+          svg {
+            path {
+              fill: var(--pink);
+            }
+          }
+        }
+      }
+    }
+
+    .category-button-label {
+      font-weight: 700;
+    }
+  }
+}

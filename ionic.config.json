@@ -1,0 +1,7 @@
+{
+  "name": "youbeleza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

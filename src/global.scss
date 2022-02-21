@@ -1,0 +1,30 @@
+/* CORE CSS */
+@import "~@ionic/angular/css/core.css";
+
+/* BÁSICO PARA CONSTRUIR COM IONIC */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* ESTILOS PARA YOUBELEZA */
+@import "./assets/scss/variables";
+@import "./assets/scss/buttons";
+@import "./assets/scss/searchbar";
+@import "./assets/scss/tabs";
+@import "./assets/scss/chips";
+@import "./assets/scss/header";
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('./assets/fonts/product-sans/ProductSansRegular.ttf') format('truetype');
+}
+
+:root { --ion-default-font: 'Product Sans' !important; }
+body { background: var(--white); color: var(--dark-gray); }
+ion-content { --background: var(--white); }
+ion-menu-button { --color: var(--white); }
+
+.header-md::after { display: none !important; }
+.p0 { padding: 0 !important; }
+.swiper-pagination-bullet { opacity: 1 !important; }

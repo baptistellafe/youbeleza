@@ -1,0 +1,103 @@
+ion-content {
+  section {
+    width: 100%;
+    
+    &:not(.mobile-searchbar):not(.home) {
+      padding-top: 30px;
+      padding-bottom: 90px;
+    }
+
+    .product-slider {
+      width: 100%;
+      margin-top: 40px;
+      max-width: 1162px;
+      margin-left: auto;
+      margin-right: auto;
+
+      > ion-slides {
+        width: 100%;
+
+        ion-slide {
+          padding: 15px 5px 5px 5px;
+        }
+      }
+    }
+  }
+  
+  section.mobile-searchbar { margin-top:  16px; padding: 0 8px; display: none; }
+
+  section.community {
+    padding: 0 16px;
+  }
+
+  section.home {
+    .home-slide {
+      width: 100%;
+      height: 439px;
+      padding: 16px;
+
+      .slide-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border-radius: 25px;
+        overflow: hidden;
+
+        > ion-slides {
+          height: 100%; 
+          width: 100%;
+          --bullet-background: var(--dark-gray);
+          --bullet-background-active: var(--pink);
+
+          ion-content {
+            --background: var(--transparent);
+          }
+        }
+
+        .overlay {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to right, #777777 0%, rgba(229, 229, 229, 0) 14.11%),
+          linear-gradient(to left, #777777 0%, rgba(229, 229, 229, 0) 14.11%), rgba(119, 119, 119, .5)  ;
+          position: absolute;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 10;
+        }
+
+        .home-slide-buttons {
+          width: 100%;
+          height: 60px;
+
+          ion-button {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+
+            &.left { left: 0; }
+            &.right { right: 0; }
+          }
+        }
+      }
+    }
+  }
+
+  section.category {
+    .category-slider {
+      width: 100%;
+      margin: 30px auto 0 auto;
+      max-width: 1162px;
+      
+      > ion-slides {
+        ion-slide {
+          align-items: flex-start;
+          padding: 10px 0;
+          
+        }
+      }
+    }
+  }
+}
